@@ -1,0 +1,30 @@
+<div class="banner">
+  <div class="banner-content">
+    <h1>Mr. Cocktail</h1>
+    <p>Best recipes on the web</p>
+  </div>
+</div>
+
+<h3>Cocktail List</h3>
+<div class="container">
+  <div class="row">
+  <div class="row">
+
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/500x400/?cocktail');">
+          <div class="card-description">
+          <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
+            <%= link_to cocktail_path(cocktail), method: :delete, data: { confirm: "Do you want to delete?"} do %>
+            <i class="fa fa-trash destroy_dose"></i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+  <% end %>
+  </div>
+  </div>
+</div>
+
+
+
